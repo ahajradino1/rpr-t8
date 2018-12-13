@@ -24,8 +24,8 @@
    <children>
       <Label text="Uzorak:" prefHeight="34.0" prefWidth="59.0"/>
       <TextField fx:id="pretraga" GridPane.columnIndex="1" />
-      <Button fx:id="traziButton" mnemonicParsing="false" text="Trazi" GridPane.halignment="CENTER" textAlignment="CENTER" GridPane.columnIndex="2" onAction="#traziBtn"/>
-      <Button fx:id="prekiniButton" mnemonicParsing="false" text="Prekini" GridPane.columnIndex="3" onAction="#prekiniBtn" GridPane.halignment="CENTER" />
+      <Button fx:id="traziButton" mnemonicParsing="false" text="Trazi" GridPane.halignment="CENTER" textAlignment="CENTER" GridPane.columnIndex="2" onAction="#traziBtn" minWidth="10"/>
+      <Button fx:id="prekiniButton" mnemonicParsing="false" text="Prekini" GridPane.columnIndex="3" onAction="#prekiniBtn" GridPane.halignment="CENTER" minWidth="10"/>
       <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="1" />
    </children>
    <padding>

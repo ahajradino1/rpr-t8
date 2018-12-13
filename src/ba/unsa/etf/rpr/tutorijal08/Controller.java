@@ -20,23 +20,17 @@ public class Controller {
     public void traziBtn(ActionEvent actionEvent) {
         traziButton.setDisable(true);
         prekiniButton.setDisable(false);
-
-        Pretraga pretr = new Pretraga("C:\\Users\\Ajsa\\Desktop");
-        Thread thread = new Thread(pretr);
+        listView.getSelectionModel().clearSelection();
+        listView.getItems().clear();
+        String home = System.getProperty("user.home");
+        Pretraga p = new Pretraga(home);
+        Thread thread = new Thread(p);
         thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        traziButton.setDisable(false);
-        prekiniButton.setDisable(true);
-
     }
 
     public void prekiniBtn(ActionEvent actionEvent) {
-        traziButton.setDisable(false);
         prekiniButton.setDisable(true);
+        traziButton.setDisable(false);
     }
 
     @FXML
@@ -64,7 +58,7 @@ public class Controller {
 
         public void trazi(File root, File current) {
             if (!traziButton.isDisabled())
-                Thread.currentThread().stop();
+                return;
             if (current.isDirectory()) {
                 File[] files = current.listFiles();
                 if (files == null)
@@ -80,20 +74,5 @@ public class Controller {
                 traziButton.setDisable(false);
         }
 
-        public void traziBtn(ActionEvent actionEvent) {
-            traziButton.setDisable(true);
-            prekiniButton.setDisable(false);
-            listView.getSelectionModel().clearSelection();
-            listView.getItems().clear();
-            String home = System.getProperty("");
-            Pretraga p = new Pretraga(home);
-            Thread thread = new Thread(p);
-            thread.start();
-        }
-
-        public void prekiniBtn(ActionEvent actionEvent) {
-            prekiniButton.setDisable(true);
-            traziButton.setDisable(false);
-        }
     }
 }
